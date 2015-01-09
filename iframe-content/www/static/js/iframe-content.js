@@ -11,11 +11,13 @@
 (function () {
   
   'use strict';
-  
+
+
   angular
     .module('net.jansensan.test.IFrameContent', [])
     .controller('IFrameContentController', IFrameContentController)
     .directive('iframeContent', IFrameContent);
+
 
   function IFrameContent() {
     return {
@@ -26,6 +28,7 @@
       templateUrl: 'static/templates/iframe-content-template.html'
     };
   }
+
 
   function IFrameContentController() {
     // vars
@@ -40,6 +43,8 @@
     vm.turnOn = turnOn;
     vm.turnOff = turnOff;
     vm.getCurrentState = getCurrentState;
+    vm.isOn = isOn;
+    vm.isOff = isOff;
 
     // private methods
     function turnOn() {
@@ -52,6 +57,14 @@
 
     function getCurrentState() {
       return _state;
+    }
+
+    function isOn() {
+      return _state === _states.ON;
+    }
+
+    function isOff() {
+      return _state === _states.OFF;
     }
   }
   

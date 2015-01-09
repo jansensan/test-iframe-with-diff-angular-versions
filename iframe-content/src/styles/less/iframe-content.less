@@ -30,6 +30,7 @@ h6
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: -0.5pt;
+  color: #000080;
 }
 
 
@@ -47,5 +48,21 @@ h6
   @media (min-width: @screen-tablet)
   {
     width: 640px;
+  }
+}
+
+.content-value
+{
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &.on
+  {
+    color: #00AA00;
+  }
+
+  &.off
+  {
+    color: #AA0000;
   }
 }
