@@ -41,8 +41,7 @@ gulp.task('compile-less', function () {
 gulp.task('serve', ['build'], function () {
   return gulp.src(rootPath.concat('/www'))
     .pipe(webserver({
-      livereload: true,
-      host: 'localhost',
+      host: 'iframe-container',
       port: 3200,
       open: true
     }));
