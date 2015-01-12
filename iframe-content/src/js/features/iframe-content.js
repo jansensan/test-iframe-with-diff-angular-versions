@@ -1,10 +1,9 @@
 (function () {
   
-  'use strict';
-
-
   angular
-    .module('net.jansensan.test.IFrameContent', [])
+    .module('icontent.features.IFrameContent', [
+      'icontent.features.APITester'
+    ])
     .controller('IFrameContentController', IFrameContentController)
     .directive('iframecontent', IFrameContent);
 

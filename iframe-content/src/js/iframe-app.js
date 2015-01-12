@@ -3,8 +3,8 @@
   'use strict';
   
   angular
-    .module('net.jansensan.tests.IframeApp', [
-      'net.jansensan.test.IFrameContent'
+    .module('icontent.app.IframeApp', [
+      'icontent.features.IFrameContent'
     ]);
   
 })();

@@ -1,20 +1,98 @@
 (function () {
-  
+
   'use strict';
-  
+
+
   angular
-    .module('net.jansensan.tests.IframeApp', [
-      'net.jansensan.test.IFrameContent'
-    ]);
-  
+    .module('icontent.services.ParentInjector', [])
+    .factory('parentInjector', getParentInjector);
+
+
+  /* ngInject */
+  function getParentInjector($window) {
+    
+    // Public API
+    var _service = {};
+    _service.get = getService;
+
+    // Implementation
+    function getInjector() {
+      return $window.parent.$('body').injector();
+    }
+
+    function getService(serviceName) {
+      return getInjector().get(serviceName);
+    }
+
+    return _service;
+  }
+
 })();
 (function () {
   
   'use strict';
-
-
+  
+  
   angular
-    .module('net.jansensan.test.IFrameContent', [])
+    .module('icontent.proxies.BPStatusProxy', ['icontent.services.ParentInjector'])
+    .factory('bpStatusProxy', BPStatusProxy);
+
+
+  /* ngInject */
+  function BPStatusProxy(parentInjector) {
+    var _proxy = parentInjector.get('bpStatus');
+    return _proxy;
+  }
+
+  
+})();
+(function () {
+  
+  angular
+    .module('icontent.features.APITester', [
+      'icontent.proxies.BPStatusProxy'
+    ])
+    .controller('APITesterController', APITesterController)
+    .directive('apitester' APITester);
+
+
+  function APITester() {
+    return {
+      restrict: 'E',
+      controller: 'APITesterController',
+      controllerAs: 'vm',
+      bindToController: true,
+      templateUrl: 'static/templates/api-tester-template.html'
+    };
+  }
+
+
+  function APITesterController(bpStatusProxy) {
+    // public api
+    var vm = this;
+    vm.test = test;
+
+    // private methods
+    function test() {
+      console.log('--- icontent.features.APITester:test ---');
+      
+      if(bpStatusProxy) {
+        bpStatusProxy.test();
+      
+      } else {
+        console.error('The bpStatusProxy is not defined. Are you forgetting that this page needs to live in an iframe?');
+      }
+    }
+  }
+
+  
+})();
+(function () {
+  
+  angular
+    .module('icontent.features.IFrameContent', [
+      'icontent.features.APITester'
+    ])
     .controller('IFrameContentController', IFrameContentController)
     .directive('iframecontent', IFrameContent);
 
@@ -67,5 +145,15 @@
       return _state === _states.OFF;
     }
   }
+  
+})();
+(function () {
+  
+  'use strict';
+  
+  angular
+    .module('icontent.app.IframeApp', [
+      'icontent.features.IFrameContent'
+    ]);
   
 })();
