@@ -20,10 +20,15 @@
   function BpStatus($http, BpStatusConfig) {
     // Public API
     var api = {};
-    api.get = get
+    api.get = get;
+    api.test = test;
 
     function get() {
       return $http.get(BpStatusConfig.BASE_URL);
+    }
+
+    function test() {
+      console.log('--- icontainer.api.BpStatus:test ---');
     }
 
     return api;
