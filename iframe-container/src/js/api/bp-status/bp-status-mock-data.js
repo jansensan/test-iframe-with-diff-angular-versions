@@ -1,10 +1,10 @@
 (function () {
 
-  angular.module('ic.api.BpStatusMockData', []);
+  angular.module('icontainer.api.BpStatusMockData', []);
 
   var BpStatusMockData = [];
 
-  angular.module('ic.api.BpStatusMockData')
+  angular.module('icontainer.api.BpStatusMockData')
     .value('BpStatusMockData', BpStatusMockData);
     
 })();

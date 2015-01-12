@@ -1,11 +1,11 @@
 (function () {
   /**
   * @ngdoc service
-  * @name ic.api.BpStatus:bpStatus
+  * @name icontainer.api.BpStatus:bpStatus
   *
   */
   angular
-    .module('ic.api.BpStatus', [])
+    .module('icontainer.api.BpStatus', [])
     .constant('BpStatusConfig', getBpStatusConfig())
     .factory('bpStatus', BpStatus);
 

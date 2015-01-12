@@ -1,9 +1,9 @@
 (function () {
   angular
-    .module('ic.api.BpStatusMock', [
+    .module('icontainer.api.BpStatusMock', [
       'ngMockE2E',
-      'ic.api.BpStatusMockData',
-      'ic.api.BpStatus'
+      'icontainer.api.BpStatusMockData',
+      'icontainer.api.BpStatus'
     ])
     .run(BpStatusMock);
     

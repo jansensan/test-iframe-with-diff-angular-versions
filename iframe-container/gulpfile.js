@@ -20,7 +20,7 @@ gulp.task('minify-js', function() {
       'src/js/api/bp-status/bp-status-mock-data.js',
       'src/js/api/bp-status/bp-status-mock.js',
       'src/js/api/bp-status/bp-status.js',
-      'src/js/counter-display.js',
+      'src/js/features/counter-display.js',
       'src/js/container-app.js'
     ])
     .pipe(concat('iframe-container.js'))

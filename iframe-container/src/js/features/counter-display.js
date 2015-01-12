@@ -4,7 +4,7 @@
   
   
   angular
-    .module('net.jansensan.test.CounterDisplay', [])
+    .module('icontainer.features.CounterDisplay', [])
     .controller('CounterDisplayController', CounterDisplayController)
     .directive('counterdisplay', CounterDisplay);
 

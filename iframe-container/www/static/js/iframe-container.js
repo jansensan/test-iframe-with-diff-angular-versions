@@ -1,20 +1,20 @@
 (function () {
 
-  angular.module('ic.api.BpStatusMockData', []);
+  angular.module('icontainer.api.BpStatusMockData', []);
 
   var BpStatusMockData = [];
 
-  angular.module('ic.api.BpStatusMockData')
+  angular.module('icontainer.api.BpStatusMockData')
     .value('BpStatusMockData', BpStatusMockData);
     
 })();
 
 (function () {
   angular
-    .module('ic.api.BpStatusMock', [
+    .module('icontainer.api.BpStatusMock', [
       'ngMockE2E',
-      'ic.api.BpStatusMockData',
-      'ic.api.BpStatus'
+      'icontainer.api.BpStatusMockData',
+      'icontainer.api.BpStatus'
     ])
     .run(BpStatusMock);
     
@@ -28,11 +28,11 @@
 (function () {
   /**
   * @ngdoc service
-  * @name ic.api.BpStatus:bpStatus
+  * @name icontainer.api.BpStatus:bpStatus
   *
   */
   angular
-    .module('ic.api.BpStatus', [])
+    .module('icontainer.api.BpStatus', [])
     .constant('BpStatusConfig', getBpStatusConfig())
     .factory('bpStatus', BpStatus);
 
@@ -63,7 +63,7 @@
   
   
   angular
-    .module('net.jansensan.test.CounterDisplay', [])
+    .module('icontainer.features.CounterDisplay', [])
     .controller('CounterDisplayController', CounterDisplayController)
     .directive('counterdisplay', CounterDisplay);
 
@@ -110,9 +110,9 @@
   'use strict';
   
   angular
-    .module('net.jansensan.tests.ContainerApp', [
-      'net.jansensan.test.CounterDisplay',
-      'ic.api.BpStatusMock'
+    .module('icontainer.app.ContainerApp', [
+      'icontainer.features.CounterDisplay',
+      'icontainer.api.BpStatusMock'
     ]);
   
 })();

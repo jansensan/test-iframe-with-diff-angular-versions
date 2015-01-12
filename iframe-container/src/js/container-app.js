@@ -3,9 +3,9 @@
   'use strict';
   
   angular
-    .module('net.jansensan.tests.ContainerApp', [
-      'net.jansensan.test.CounterDisplay',
-      'ic.api.BpStatusMock'
+    .module('icontainer.app.ContainerApp', [
+      'icontainer.features.CounterDisplay',
+      'icontainer.api.BpStatusMock'
     ]);
   
 })();
