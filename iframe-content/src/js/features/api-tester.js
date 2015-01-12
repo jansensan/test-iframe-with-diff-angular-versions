@@ -5,7 +5,7 @@
       'icontent.proxies.BPStatusProxy'
     ])
     .controller('APITesterController', APITesterController)
-    .directive('apitester' APITester);
+    .directive('apitester', APITester);
 
 
   function APITester() {
