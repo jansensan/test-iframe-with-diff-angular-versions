@@ -34,7 +34,9 @@
   
   
   angular
-    .module('icontent.proxies.BPStatusProxy', ['icontent.services.ParentInjector'])
+    .module('icontent.proxies.BPStatusProxy', [
+      'icontent.services.ParentInjector'
+    ])
     .factory('bpStatusProxy', BPStatusProxy);
 
 
@@ -53,7 +55,7 @@
       'icontent.proxies.BPStatusProxy'
     ])
     .controller('APITesterController', APITesterController)
-    .directive('apitester' APITester);
+    .directive('apitester', APITester);
 
 
   function APITester() {

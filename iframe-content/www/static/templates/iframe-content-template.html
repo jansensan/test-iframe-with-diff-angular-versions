@@ -1,6 +1,8 @@
-<p>State is: <span class="content-value" ng-class="{'on': vm.isOn(), 'off': vm.isOff()}">{{vm.getCurrentState()}}</span></p>
+<div>
+  <p>State is: <span class="content-value" ng-class="{'on': vm.isOn(), 'off': vm.isOff()}">{{vm.getCurrentState()}}</span></p>
 
-<button ng-click="vm.turnOn()">Turn On</button>
-<button ng-click="vm.turnOff()">Turn Off</button>
+  <button ng-click="vm.turnOn()">Turn On</button>
+  <button ng-click="vm.turnOff()">Turn Off</button>
 
-<apitester></apitester>
+  <apitester></apitester>
+</div>

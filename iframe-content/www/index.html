@@ -12,6 +12,12 @@
     </div>
     
     <script type="text/javascript" src="static/js/angular.min.js" ></script>
+    <script type="text/javascript">
+      // set document domain to be common with iframe container
+      var domainParts = window.location.hostname.split('.');
+      document.domain = domainParts[domainParts.length -2] + '.' + domainParts[domainParts.length -1];
+      console.log('document.domain (content): ' + (document.domain));
+    </script>
     <script type="text/javascript" src="static/js/iframe-content.js" ></script>
   </body>
 </html>
