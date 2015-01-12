@@ -4,7 +4,8 @@
   
   angular
     .module('net.jansensan.tests.ContainerApp', [
-      'net.jansensan.test.CounterDisplay'
+      'net.jansensan.test.CounterDisplay',
+      'ic.api.BpStatusMock'
     ]);
   
 })();
