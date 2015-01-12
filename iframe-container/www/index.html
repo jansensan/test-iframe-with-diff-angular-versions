@@ -8,11 +8,18 @@
     <div ng-app="net.jansensan.tests.ContainerApp">
       <h1>iframe container</h1>
       <p>This page runs on a script built with AngularJS v.1.2.26</p>
-      <counter-display/>
-      <iframe src="http://iframe-content:1600/"></iframe>
+      <br/>
+      <iframe
+        src="http://dev.jansensan.net/test-iframe-with-diff-angular-versions/iframe-content/"
+        width="480"
+        height="320"
+        >
+      </iframe>
+      <br/>
+      <counterdisplay/>
     </div>
     
-    <script type="text/javascript" src="/static/js/angular.min.js" ></script>
-    <script type="text/javascript" src="/static/js/iframe-container.js" ></script>
+    <script type="text/javascript" src="static/js/angular.min.js" ></script>
+    <script type="text/javascript" src="static/js/iframe-container.js" ></script>
   </body>
 </html>

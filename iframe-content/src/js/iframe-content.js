@@ -6,7 +6,7 @@
   angular
     .module('net.jansensan.test.IFrameContent', [])
     .controller('IFrameContentController', IFrameContentController)
-    .directive('iframeContent', IFrameContent);
+    .directive('iframecontent', IFrameContent);
 
 
   function IFrameContent() {

@@ -16,7 +16,7 @@
   angular
     .module('net.jansensan.test.CounterDisplay', [])
     .controller('CounterDisplayController', CounterDisplayController)
-    .directive('counterDisplay', CounterDisplay);
+    .directive('counterdisplay', CounterDisplay);
 
 
   function CounterDisplay() {
