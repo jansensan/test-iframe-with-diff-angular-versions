@@ -4,7 +4,8 @@
   * @name ic.api.BpStatus:bpStatus
   *
   */
-  angular.module('ic.api.BpStatus', [])
+  angular
+    .module('ic.api.BpStatus', [])
     .constant('BpStatusConfig', getBpStatusConfig())
     .factory('bpStatus', BpStatus);
 
@@ -16,7 +17,7 @@
   }
 
   /* @ngInject */
-  function BpStatus(BpStatusConfig) {
+  function BpStatus($http, BpStatusConfig) {
     // Public API
     var api = {};
     api.get = get
