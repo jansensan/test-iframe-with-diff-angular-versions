@@ -24,9 +24,15 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest('www/static/js'));
 });
 
-// Copy  AngularJS
+// Copy AngularJS
 gulp.task('copy-angular', function () {
   return gulp.src('bower_components/angular/angular.min.js')
+    .pipe(gulp.dest('www/static/js'));
+});
+
+// Copy Angular Mocks
+gulp.task('copy-angular-mocks', function () {
+  return gulp.src('bower_components/angular-mocks/angular-mocks.js')
     .pipe(gulp.dest('www/static/js'));
 });
 
@@ -41,7 +47,7 @@ gulp.task('compile-less', function () {
 gulp.task('serve', ['build'], function () {
   return gulp.src(rootPath.concat('/www'))
     .pipe(webserver({
-      host: 'iframe-container',
+      host: 'localhost',
       port: 3200,
       open: true
     }));
@@ -49,5 +55,5 @@ gulp.task('serve', ['build'], function () {
 
 // Default Task
 gulp.task('default', ['build']);
-gulp.task('build', ['minify-js', 'copy-angular', 'compile-less']);
+gulp.task('build', ['minify-js', 'copy-angular', 'copy-angular-mocks', 'compile-less']);
 gulp.task('dev', ['serve']);

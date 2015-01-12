@@ -1,0 +1,8 @@
+{
+  "generator-xd-angular": {
+    "projectName": "iframe-container",
+    "vendorPrefix": "ic",
+    "repoUrl": "",
+    "webserver": "gulp-webserver"
+  }
+}
