@@ -16,7 +16,13 @@ var rootPath = process.env.PWD = process.cwd();
 
 // Concatenate & Minify JS
 gulp.task('minify-js', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src([
+      'src/js/api/bp-status/bp-status-mock-data.js',
+      'src/js/api/bp-status/bp-status-mock.js',
+      'src/js/api/bp-status/bp-status.js',
+      'src/js/counter-display.js',
+      'src/js/container-app.js'
+    ])
     .pipe(concat('iframe-container.js'))
     .pipe(gulp.dest('www/static/js'))
     .pipe(rename('iframe-container.min.js'))
