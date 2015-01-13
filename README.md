@@ -1,8 +1,8 @@
-# Test: `<iframe>` with different AngularJS version
+# Test: `<iframe>` with different AngularJS versions
 
 ## Install
 
-Make sure you have [node][] and [bower][] installed.
+Make sure you have `node` and `bower` installed.
 
 Then, go to in each directory (`iframe-container` and `iframe-content`) and type this command in the Terminal:
 
