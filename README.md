@@ -59,4 +59,4 @@ This will open a browser page with the project.
 
 ### Getting the parent window injector
 
-Currently, calling `$window.parent.$('body')` throws an error. The error states that `$('body')` is not a function. To be explored.
+It is currently impossible to get the parent window's body `injector()` function to work.

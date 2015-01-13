@@ -18,12 +18,19 @@
     // Implementation
     function getInjector() {
       console.log('--- icontent.services.ParentInjector:getInjector ---');
+      console.log('jQuery: ', jQuery);
 
-      console.log('$window: ', $window);
-      console.log('$window.parent: ', $window.parent);
-      console.log('$window.parent.$(body): ', $window.parent.$('body'));
+      // FIXME: an error is thrown with the $('body') function
+      var parentWindow = $window.parent;
+      console.log('parentWindow: ', parentWindow);
 
-      return $window.parent.$('body').injector();
+      var parentBody = parentWindow.$('body');
+      console.log('parentBody: ', parentBody);
+
+      var injector = parentBody.injector();
+      console.log('injector: ', injector);
+
+      return injector;
     }
 
     function getService(serviceName) {

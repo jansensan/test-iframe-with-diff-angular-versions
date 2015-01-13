@@ -31,6 +31,12 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest('www/static/js'));
 });
 
+// Copy jQuery
+gulp.task('copy-jquery', function () {
+  return gulp.src('bower_components/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('www/static/js'));
+});
+
 // Copy AngularJS
 gulp.task('copy-angular', function () {
   return gulp.src('bower_components/angular/angular.min.js')
@@ -63,5 +69,5 @@ gulp.task('serve', ['build'], function () {
 
 // Default Task
 gulp.task('default', ['build']);
-gulp.task('build', ['minify-js', 'copy-angular', 'compile-less']);
+gulp.task('build', ['minify-js', 'copy-jquery', 'copy-angular', 'compile-less']);
 gulp.task('dev', ['serve']);
