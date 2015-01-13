@@ -1,6 +1,23 @@
 # Test: `<iframe>` with different AngularJS versions
 
-## Install
+## About the project
+
+Each directory is its own project.
+
+- The `iframe-content` is a page that is intended to run as content for the `iframe-container`. This runs a script built with AngularJS v.1.3.0.
+- `iframe-container` is the page that contains an `<iframe>` which loads the `iframe-content`. This runs a script built with AngularJS v.1.2.26.
+
+## Installation and setup
+
+### 1. Hosts file
+
+Add this entry to your hosts file:
+
+```
+127.0.0.1 container.iframe-test.com content.iframe-test.com
+```
+
+### 2. Node and Bower components
 
 Make sure you have `node` and `bower` installed.
 
@@ -9,13 +26,6 @@ Then, go to in each directory (`iframe-container` and `iframe-content`) and type
 ```
 npm install && bower install
 ```
-
-## About the project
-
-Each directory is its own project.
-
-- The `iframe-content` is a page that is intended to run as content for the `iframe-container`. This runs a script built with AngularJS v.1.3.0.
-- `iframe-container` is the page that contains an `<iframe>` which loads the `iframe-content`. This runs a script built with AngularJS v.1.2.26.
 
 ## Building the project
 
@@ -47,8 +57,6 @@ This will open a browser page with the project.
 
 ## Known issues
 
-### Setting the domain
+### Getting the parent window injector
 
-In this project, we intend to have the `<iframe>` content proxy services in the parent window. In order to do so, we need to make sure both the parent window and the `<iframe>` have the same `document.domain` value.
-
-However, the current function does not work as intended. The possible solution maybe to add development domain names to the hosts file.
+Currently, calling `$window.parent.$('body')` throws an error. The error states that `$('body')` is not a function. To be explored.

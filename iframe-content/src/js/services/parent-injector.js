@@ -17,6 +17,13 @@
 
     // Implementation
     function getInjector() {
+      console.log('--- icontent.services.ParentInjector:getInjector ---');
+
+      // FIXME: an error is thrown with the $('body') function
+      console.log('$window: ', $window);
+      console.log('$window.parent: ', $window.parent);
+      console.log('$window.parent.$(body): ', $window.parent.$('body'));
+
       return $window.parent.$('body').injector();
     }
 

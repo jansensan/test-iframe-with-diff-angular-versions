@@ -55,7 +55,7 @@ gulp.task('lint', function() {
 gulp.task('serve', ['build'], function () {
   return gulp.src(rootPath.concat('/www'))
     .pipe(webserver({
-      host: 'localhost',
+      host: 'content.iframe-test.com',
       port: 1600,
       open: true
     }));
