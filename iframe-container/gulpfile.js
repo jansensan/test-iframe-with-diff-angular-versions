@@ -8,9 +8,11 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
 var webserver = require('gulp-webserver');
+var bowerFiles = require('main-bower-files');
+var wiredep = require('wiredep').stream;
 
 
-// grabs the current dir full path from filesystem
+// Grabs the current dir full path from filesystem
 var rootPath = process.env.PWD = process.cwd();
 
 
@@ -28,22 +30,26 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest('www/static/js'));
 });
 
-// Copy jQuery
-gulp.task('copy-jquery', function () {
-  return gulp.src('bower_components/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('www/static/js'));
+// copy vendors files
+gulp.task('copy-vendors', function () {
+  return gulp.src(bowerFiles(), {base: 'bower_components'})
+    .pipe(gulp.dest('www/static/js/vendors'));
 });
 
-// Copy AngularJS
-gulp.task('copy-angular', function () {
-  return gulp.src('bower_components/angular/angular.min.js')
-    .pipe(gulp.dest('www/static/js'));
-});
-
-// Copy Angular Mocks
-gulp.task('copy-angular-mocks', function () {
-  return gulp.src('bower_components/angular-mocks/angular-mocks.js')
-    .pipe(gulp.dest('www/static/js'));
+// Add vendors to index
+gulp.task('build-index', function () {
+  return gulp.src('src/html/index.html')
+    .pipe(wiredep({
+      ignorePath: '../../bower_components/',
+      fileTypes: {
+        html: {
+          replace: {
+            js: '<script src="static/js/vendors/{{filePath}}"></script>',
+          }
+        }
+      }
+    }))
+    .pipe(gulp.dest('www'));
 });
 
 // Compile LESS
@@ -59,12 +65,17 @@ gulp.task('serve', ['build'], function () {
     .pipe(webserver({
       host: 'container.iframe-test.com',
       port: 3200,
+      livereload: true,
       open: true
     }));
 });
 
-
 // Tasks
 gulp.task('default', ['build']);
-gulp.task('build', ['minify-js', 'copy-jquery', 'copy-angular', 'copy-angular-mocks', 'compile-less']);
+gulp.task('build', [
+  'compile-less',
+  'minify-js',
+  'copy-vendors',
+  'build-index'
+]);
 gulp.task('dev', ['serve']);
